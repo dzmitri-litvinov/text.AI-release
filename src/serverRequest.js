@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     request.open("POST", "http://34.86.152.21:8080/cgi-bin/script.cgi", true);
 
     request.addEventListener("readystatechange", function () {
-      console.log(parseInt(request.responseText.replace(/[^\d]/g, "")));
+      console.log(parseInt(request.responseText));
       document.querySelector("#img").classList.add("opacity");
       document.querySelector("#result").innerHTML = `${parseInt(
         request.responseText.replace(/[^\d]/g, "")
