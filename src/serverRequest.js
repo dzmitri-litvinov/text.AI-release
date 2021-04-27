@@ -9,11 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
     request.open("POST", "http://34.125.1.13:8080/cgi-bin/script.cgi", true);
 
     request.addEventListener("readystatechange", function () {
-      console.log(parseInt(request.responseText.replace(regexp, "")));
+      const answerNumber = 100 - parseInt(request.responseText.replace(regexp, ""));
+      console.log(answerNumber);
       document.querySelector("#img").classList.add("opacity");
-      document.querySelector("#result").innerHTML = `${parseInt(
-        request.responseText.replace(regexp, "")
-      )}% unique`;
+      document.querySelector("#result").innerHTML = `${answerNumber}% unique`;
     });
 
     request.setRequestHeader(
