@@ -14,6 +14,7 @@ copy conf/cgi.load /etc/apache2/mods-enabled/
 copy src/serverRequest.js /var/www/html/src/serverRequest.js
 copy src/index.css /var/www/html/src/index.css
 
+copy favicon.ico /var/www/html/favicon.ico
 copy src/particles.js /var/www/html/src/particles.js
 copy src/app.js /var/www/html/src/app.js 
 copy src/select.js /var/www/html/src/select.js

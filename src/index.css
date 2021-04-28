@@ -181,6 +181,7 @@ body {
 
 .c-antiPlagiarizm__opacity {
   position: absolute;
+  background-color: black;
   background-image: url(./main.webp);
   background-position: center center;
   background-size: cover;
@@ -327,6 +328,7 @@ body {
 }
 
 .opacity {
+  background-color: transparent;
   border-radius: 1.25rem;
   filter: alpha(opacity=60);
   -moz-opacity: 0.6;
