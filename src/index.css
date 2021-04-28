@@ -313,13 +313,23 @@ body {
   padding: 1.25rem;
   width: 100%;
   text-align: center;
-  color: #f3f3f3;
+  color: rgb(245, 245, 245);
   font-size: 4rem;
   font-weight: 400;
+  z-index: 9999;
 }
 
 .opacity {
-  opacity: 0.6;
+  background: #ccc;
+  border-radius: 1.25rem;
+  filter: alpha(opacity=80);
+  -moz-opacity: 0.8;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 #particles-js {
@@ -340,7 +350,6 @@ body {
 }
 
 @media (max-width: 869px) {
-
   .c-antiPlagiarizm__header {
     margin-bottom: 3.375rem;
   }
@@ -414,7 +423,6 @@ body {
 }
 
 @media (max-width: 610px) {
-
   .c-antiPlagiarizm__title {
     font-size: 3.125rem;
   }
@@ -449,7 +457,6 @@ body {
 }
 
 @media (max-width: 400px) {
-  
   .c-antiPlagiarizm__title {
     margin-bottom: 0.875rem;
   }
