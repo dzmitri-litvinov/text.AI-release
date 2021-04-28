@@ -26,9 +26,11 @@ using namespace cgicc;
 
 const string EXCLUSIONS[] = { "чтд", "либо", "или", "что", "чтобы", "как", "нибудь", "только", "зато", "также", "когда", "чем"};
 
+string getDB();
+
+double getShinglesMatchingsPersentage(const string &text, const string parsedFragment[], const int &wordsCount);
 double antiPlagiarism(string text, string fragment);
 string getSubstring(const string &originString, const int &startPosition, const int &length);
-string getDB();
 
 int getShinglesTotalCount(const int &wordsTotalCount);
 int getMaxStringLength(const string &string1, const string &string2);
@@ -44,7 +46,7 @@ void shiftQueue(string queue[], const int &queueLength, const string &newElement
 void findWord(string &str, const string &text, int &startPosition, const int &length);
 void parseFragment(const string &fragment, string outputArr[]);
 
-bool isMatchesInFragment(const string shingle[], const string textFragment[], const int &shinglesCount);
+bool isMatchesInFragment(const string shingle[], const string textFragment[], const int &shinglesCount, bool isShinglesChecked[]);
 bool isEqualShingles(const string shingle[], const string textFragment[], const int &startPosition);
 bool isEmptyWord(const string &word);
 bool isExclusion(const string &word);
@@ -96,22 +98,23 @@ string getDB(){
 double antiPlagiarism(string text, string fragment)
 {
     string parsedFragment[LENGTH_MAX_FRAGMENT];
-    string shingle[LENGTH_SHINGLE];
-    int textLength = getStringLength(text),
+    parseFragment(fragment, parsedFragment);
+    int wordsTotalCount = getWordsCounter(parsedFragment);
+    
+    return (wordsTotalCount < LENGTH_SHINGLE)
+        ? 0
+        : getShinglesMatchingsPersentage(text, parsedFragment, wordsTotalCount);
+}
+
+double getShinglesMatchingsPersentage(const string &text, const string parsedFragment[], const int &wordsCount)
+{
+    int shinglesTotalCount = getShinglesTotalCount(wordsCount),
+        textLength = getStringLength(text),
         wordPointer = 0,
         textPointer = 0,
         sameShinglesCounter = 0;
-
-    parseFragment(fragment, parsedFragment);
-
-    int wordsTotalCount = getWordsCounter(parsedFragment);
-
-    if (wordsTotalCount < LENGTH_SHINGLE)
-    {
-        return 0;
-    }
-
-    int shinglesTotalCount = getShinglesTotalCount(wordsTotalCount);
+    string shingle[LENGTH_SHINGLE];
+    bool checkedShingles[LENGTH_MAX_FRAGMENT] = {0};
 
     while (textPointer < textLength)
     {
@@ -130,7 +133,7 @@ double antiPlagiarism(string text, string fragment)
             continue;
         }
         writeWordInShingle(shingle, wordPointer, word, length);
-        if (wordPointer >= LENGTH_SHINGLE && isMatchesInFragment(shingle, parsedFragment, shinglesTotalCount))
+        if (wordPointer >= LENGTH_SHINGLE && isMatchesInFragment(shingle, parsedFragment, shinglesTotalCount, checkedShingles))
         {
             sameShinglesCounter++;
         }
@@ -301,12 +304,17 @@ void parseFragment(const string &fragment, string outputArr[])
     }
 }
 
-bool isMatchesInFragment(const string shingle[], const string textFragment[], const int &shinglesCount)
+bool isMatchesInFragment(const string shingle[], const string textFragment[], const int &shinglesCount, bool isShinglesChecked[])
 {
     for (int i = 0; i < shinglesCount; i++)
     {
-        if (isEqualShingles(shingle, textFragment, i))
+        if (isShinglesChecked[i])
         {
+            continue;
+        }
+        else if (isEqualShingles(shingle, textFragment, i))
+        {
+            isShinglesChecked[i] = true;
             return true;
         }
     }
