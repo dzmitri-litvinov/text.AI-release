@@ -290,6 +290,8 @@ body {
   position: absolute;
   right: 6%;
   top: 10%;
+  background-color: #000000;
+  z-index: -1;
 }
 
 .c-select__body {
@@ -302,7 +304,7 @@ body {
   border: 0.125rem solid #191f82;
   border-top: 0;
   border-radius: 0.625rem;
-  padding: 1.0625rem 1.3125rem;
+  padding: 1rem 0.8rem;
   background: #ffffff;
 }
 
@@ -310,6 +312,7 @@ body {
   cursor: pointer;
   margin-bottom: 0.875rem;
   border-bottom: 2px solid #efefef;
+  padding: 0.3rem;
 }
 
 .c-select__option:last-of-type {
