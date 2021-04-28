@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     request.addEventListener("readystatechange", function () {
       const answerNumber = 100 - parseInt(request.responseText.replace(regexp, ""));
       console.log(answerNumber);
-      document.querySelector("#img").classList.add("opacity");
+      document.querySelector("#opacity").classList.add("opacity");
       document.querySelector("#result").innerHTML = `${answerNumber}% unique`;
     });
 
