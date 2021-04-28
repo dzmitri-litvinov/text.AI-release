@@ -321,10 +321,13 @@ body {
 
 .opacity {
   background: #ccc;
+  background-image: url(./main.png);
+  background-position: center center;
+  background-size: cover;
   border-radius: 1.25rem;
-  filter: alpha(opacity=80);
-  -moz-opacity: 0.8;
-  opacity: 0.8;
+  filter: alpha(opacity=60);
+  -moz-opacity: 0.6;
+  opacity: 0.6;
   position: absolute;
   top: 0;
   left: 0;
