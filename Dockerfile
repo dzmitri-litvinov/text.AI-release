@@ -24,7 +24,7 @@ copy src/body.png /var/www/html/src/body.png
 copy src/facebook.png /var/www/html/src/facebook.png
 copy src/github.png /var/www/html/src/github.png
 copy src/logo.png /var/www/html/src/logo.png
-copy src/main.png /var/www/html/src/main.png
+copy src/main.webp /var/www/html/src/main.webp
 copy src/misprint.png /var/www/html/src/misprint.png
 copy src/repetition.png /var/www/html/src/repetition.png
 copy src/uniqueness.png /var/www/html/src/uniqueness.png
