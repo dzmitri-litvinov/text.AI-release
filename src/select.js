@@ -4,22 +4,15 @@ let textAreaNode = document.querySelector(".c-antiPlagiarizm__textarea");
 const btnSendNode = document.querySelector(".c-antiPlagiarizm__button");
 const WORDS_NUMBER = 2;
 
-function selectOption() {
-  let text = this.innerText;
-  let src = this.getElementsByTagName("img")[0].getAttribute("src");
-  let currentText = this.parentNode.parentNode.firstElementChild.getElementsByTagName(
-    "span"
-  )[0];
-  let currentImg = this.parentNode.parentNode.firstElementChild.getElementsByTagName(
-    "img"
-  )[0];
-
-  currentText.innerText = text;
-  currentImg.src = src;
-}
-
 Array.from(selectBodyNode.children).forEach((prop) => {
-  prop.addEventListener("click", selectOption);
+  prop.style.backgroundColor = "rgba(108, 117, 137, 0.6)";
+  prop.style.borderRadius = "0.625rem";
+  prop.style.cursor = "not-allowed";
+
+  prop.addEventListener("click", (e) => {
+    e.preventDefault();
+    selectBodyNode.classList.toggle("is-active");
+  });
 });
 
 selectNode.addEventListener("click", () => {
