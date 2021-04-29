@@ -18,13 +18,13 @@ using namespace cgicc;
 #define LENGTH_MAX_WORD 32
 #define LENGTH_EXCLUSIONS 12
 #define LENGTH_MAX_FRAGMENT 256
-#define SEPARATORS "./,+-#:`~@;$%^&*№([{< >}])=|!?–\'\""
+#define SEPARATORS "./,+-#:`~@;$%^&*в„–([{< >}])=|!?вЂ“\'\""
 #define ENG_LETTERS "AaBCcEeHKkMOoPpTXx"
-#define RUS_LETTERS "АаВСсЕеНКкМОоРрТХх"
-#define RUS_LETTERS_LOWER_CASE "абвгдеёжзийклмнопрстуфхцшщъыьэюя"
-#define RUS_LETTERS_UPPER_CASE "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦШЩЪЫЬЭЮЯ"
+#define RUS_LETTERS "РђР°Р’РЎСЃР•РµРќРљРєРњРћРѕР СЂРўРҐС…"
+#define RUS_LETTERS_LOWER_CASE "Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С€С‰СЉС‹СЊСЌСЋСЏ"
+#define RUS_LETTERS_UPPER_CASE "РђР‘Р’Р“Р”Р•РЃР–Р—РР™РљР›РњРќРћРџР РЎРўРЈР¤РҐР¦РЁР©РЄР«Р¬Р­Р®РЇ"
 
-const string EXCLUSIONS[] = { "чтд", "либо", "или", "что", "чтобы", "как", "нибудь", "только", "зато", "также", "когда", "чем"};
+const string EXCLUSIONS[] = { "С‡С‚Рґ", "Р»РёР±Рѕ", "РёР»Рё", "С‡С‚Рѕ", "С‡С‚РѕР±С‹", "РєР°Рє", "РЅРёР±СѓРґСЊ", "С‚РѕР»СЊРєРѕ", "Р·Р°С‚Рѕ", "С‚Р°РєР¶Рµ", "РєРѕРіРґР°", "С‡РµРј"};
 
 string getDB();
 
