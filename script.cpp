@@ -20,9 +20,9 @@ using namespace cgicc;
 #define LENGTH_MAX_FRAGMENT 256
 #define SEPARATORS "./,+-#:`~@;$%^&*№([{< >}])=|!?–\'\"\n"
 #define ENG_LETTERS "AaBCcEeHKkMOoPpTXx"
-#define RUS_LETTERS "АаВСсЕеНКкМОоРрТХх"
-#define RUS_LETTERS_LOWER_CASE "абвгдеёжзийклмнопрстуфхцшщъыьэюя"
-#define RUS_LETTERS_UPPER_CASE "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦШЩЪЫЬЭЮЯ"
+#define RUS_LETTERS "\u0410\u0430\u0412\u0421\u0441\u0415\u0435\u041d\u041a\u043a\u041c\u041e\u043e\u0420\u0440\u0422\u0425\u0445"
+#define RUS_LETTERS_LOWER_CASE "\u0430\u0431\u0432\u0433\u0434\u0435\u0451\u0436\u0437\u0438\u0439\u043a\u043b\u043c\u043d\u043e\u043f\u0440\u0441\u0442\u0443\u0444\u0445\u0446\u0448\u0449\u044a\u044b\u044c\u044d\u044e\u044f"
+#define RUS_LETTERS_UPPER_CASE "\u0410\u0411\u0412\u0413\u0414\u0415\u0401\u0416\u0417\u0418\u0419\u041a\u041b\u041c\u041d\u041e\u041f\u0420\u0421\u0422\u0423\u0424\u0425\u0426\u0428\u0429\u042a\u042b\u042c\u042d\u042e\u042f"
 
 const string EXCLUSIONS[] = { "чтд", "либо", "или", "что", "чтобы", "как", "нибудь", "только", "зато", "также", "когда", "чем"};
 
@@ -60,7 +60,7 @@ bool isNumeral(char symbol);
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    
+
     Cgicc form;
     string name;
 
