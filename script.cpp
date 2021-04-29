@@ -2,6 +2,7 @@
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
+#include <Windows.h>
 #include <cgicc/CgiDefs.h>
 #include <cgicc/Cgicc.h>
 #include <cgicc/HTTPHTMLHeader.h>
@@ -59,6 +60,9 @@ bool isNumeral(char symbol);
 
 int main()
 {
+    SetConsoleCP(1251);       // Set Cyrillic encoding console input
+    SetConsoleOutputCP(1251); // Set Cyrillic encoding console output
+    
     Cgicc form;
     string name;
 
