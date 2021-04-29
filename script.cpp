@@ -18,11 +18,11 @@ using namespace cgicc;
 #define LENGTH_MAX_WORD 32
 #define LENGTH_EXCLUSIONS 12
 #define LENGTH_MAX_FRAGMENT 256
-#define SEPARATORS "./,+-#$%^&*( )=!?”'‘„"
+#define SEPARATORS "./,+-#:`~@;$%^&*є([{< >}])=|!?Ц\'\""
 #define ENG_LETTERS "AaBCcEeHKkMOoPpTXx"
-#define RUS_LETTERS "Љађсс?еН†кЮЭоЦрУТх"
-#define RUS_LETTERS_LOWER_CASE "абвгде™жзийклмнопрстуфхцчшщэю§"
-#define RUS_LETTERS_UPPER_CASE "Љљђ???Ѓ?ЂїЕ†ОЮНЭЊЦЧУФСТ?Д°Ґ®Є€"
+#define RUS_LETTERS "ја¬—с≈еЌ кћќо–р“’х"
+#define RUS_LETTERS_LOWER_CASE "абвгдеЄжзийклмнопрстуфхцшщъыьэю€"
+#define RUS_LETTERS_UPPER_CASE "јЅ¬√ƒ≈®∆«»… ЋћЌќѕ–—“”‘’÷ЎўЏџ№Ёёя"
 
 const string EXCLUSIONS[] = { "чтд", "либо", "или", "что", "чтобы", "как", "нибудь", "только", "зато", "также", "когда", "чем"};
 
