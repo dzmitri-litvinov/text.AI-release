@@ -18,7 +18,7 @@ using namespace cgicc;
 #define LENGTH_MAX_WORD 32
 #define LENGTH_EXCLUSIONS 12
 #define LENGTH_MAX_FRAGMENT 256
-#define SEPARATORS "./,+-#:`~@;$%^&*№([{< >}])=|!?–\'\""
+#define SEPARATORS "./,+-#:`~@;$%^&*№([{< >}])=|!?–\'\"\n"
 #define ENG_LETTERS "AaBCcEeHKkMOoPpTXx"
 #define RUS_LETTERS "АаВСсЕеНКкМОоРрТХх"
 #define RUS_LETTERS_LOWER_CASE "абвгдеёжзийклмнопрстуфхцшщъыьэюя"
