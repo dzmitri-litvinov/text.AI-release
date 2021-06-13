@@ -40,7 +40,4 @@ WORKDIR /var/www/cgi-bin
 RUN make
 RUN chmod 755 script.cgi
 RUN rm Makefile script.cpp
-
-RUN adduser -D myuser
-USER myuser
 CMD apache2ctl -D FOREGROUND
