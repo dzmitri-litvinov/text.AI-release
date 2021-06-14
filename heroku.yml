@@ -1,5 +1,4 @@
 build:
   docker:
     web: Dockerfile
-run:
-  web: apache2ctl -D FOREGROUND
+    worker: worker/Dockerfile
