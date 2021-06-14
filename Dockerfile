@@ -39,5 +39,6 @@ copy db.txt /var/www/cgi-bin/db.txt
 WORKDIR /var/www/cgi-bin
 RUN make
 RUN chmod 755 script.cgi
+RUN chmod 755 -R /var/lock/
 RUN rm Makefile script.cpp
 CMD apache2ctl -D FOREGROUND
