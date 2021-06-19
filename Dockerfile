@@ -19,8 +19,10 @@ RUN mkdir /var/www/cgi-bin/
 COPY Makefile /var/www/cgi-bin/
 COPY script.cpp /var/www/cgi-bin/
 COPY db.txt /var/www/cgi-bin/
+
 WORKDIR /var/www/cgi-bin
 RUN make
 RUN chmod 755 script.cgi
 RUN rm Makefile script.cpp
 CMD apache2ctl -D FOREGROUND
+VOLUME ["/var/lock/"]
