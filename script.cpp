@@ -6,6 +6,11 @@
 #include <cgicc/Cgicc.h>
 #include <cgicc/HTTPHTMLHeader.h>
 #include <cgicc/HTMLClasses.h>
+
+#include <boost/variant.hpp>
+#include <mysql.h>
+#include <mysql_connection.h>
+
 using namespace std;
 using namespace cgicc;
 
@@ -25,6 +30,12 @@ using namespace cgicc;
 #define RUS_LETTERS_UPPER_CASE "\u0410\u0411\u0412\u0413\u0414\u0415\u0401\u0416\u0417\u0418\u0419\u041a\u041b\u041c\u041d\u041e\u041f\u0420\u0421\u0422\u0423\u0424\u0425\u0426\u0428\u0429\u042a\u042b\u042c\u042d\u042e\u042f"
 
 const string EXCLUSIONS[] = { "чтд", "либо", "или", "что", "чтобы", "как", "нибудь", "только", "зато", "также", "когда", "чем"};
+
+const char* server = "eu-cdbr-west-01.cleardb.com";
+const char* user = "bf9a5ee7e63428";
+const char* password = "b74c4f1c";
+const char* database = "heroku_b26ccddac4641f9";
+const char* sqlQueryForTextAI = "SELECT * FROM texts";
 
 string getDB();
 
@@ -86,15 +97,40 @@ int main()
 }
 
 string getDB(){
-	std::ifstream in("db.txt");
+    MYSQL* conn;
+    MYSQL_RES* res;
+    MYSQL_ROW row;
 
-    string dbText = "", s1;
-    while (getline(in, s1))
-    	dbText += s1;
-  
-    in.close();
-    
-    return dbText;
+    int qstate;
+    int num_fields = 0;
+
+    string sumOfTexts = "";
+
+    conn = mysql_init(NULL);
+
+    if (conn != NULL) {
+        conn = mysql_real_connect(conn, server, user, password, database, 3306, NULL, 0);
+    }
+
+    qstate = mysql_query(conn, sqlQueryForTextAI);
+
+    if (!qstate)
+    {
+        res = mysql_store_result(conn);
+        row = mysql_fetch_row(res);
+        while (row)
+        {
+            sumOfTexts.append(" ");
+            sumOfTexts.append(row[1]);
+
+            row = mysql_fetch_row(res);
+        }
+    }
+
+    mysql_free_result(res);
+    mysql_close(conn);
+
+    return sumOfTexts;
 }
 
 double antiPlagiarism(string text, string fragment)
