@@ -1,9 +1,11 @@
 FROM ubuntu:18.04
-RUN apt update -y && \ 
+RUN apt update -y && \
     apt install apache2 -y && \
     apt install g++ -y && \
+    apt install libtool libqtgui4 libqtcore4 libcgicc-dev libqt4-xml libqt4-test libqt4-script libqt4-network libqt4-dbus libgle3 -y && \
     apt install libcgicc3 -y && \
-    apt install libcgicc-dev -y && \
+    apt install libboost-all-dev -y && \
+    apt install libmysqlclient-dev libmysqlcppconn-dev -y && \
     apt install make -y
 
 COPY index.html /var/www/html/
