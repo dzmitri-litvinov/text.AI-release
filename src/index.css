@@ -121,6 +121,8 @@ body {
   background-color: black;
   color: white;
   border-radius: 1rem;
+  height: 4.3rem;
+  overflow: auto;
 }
 
 .c-antiPlagiarizm__main {
@@ -501,6 +503,15 @@ body {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     display: block;
+  }
+
+  .c-antiPlagiarizm__database {
+    flex-direction: column;
+  }
+
+  .c-antiPlagiarizm__btn {
+    width: 100%;
+    margin-bottom: 1.5rem;
   }
 
   .c-select {
