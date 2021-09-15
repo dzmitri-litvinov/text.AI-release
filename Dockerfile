@@ -20,11 +20,13 @@ COPY conf/cgi.load /etc/apache2/mods-enabled/
 RUN mkdir /var/www/cgi-bin/
 COPY Makefile /var/www/cgi-bin/
 COPY script.cpp /var/www/cgi-bin/
+COPY text.cpp /var/www/cgi-bin/
 COPY db.txt /var/www/cgi-bin/
 
 WORKDIR /var/www/cgi-bin
 RUN make
 RUN chmod 755 script.cgi
+RUN chmod 755 text.cgi
 RUN rm Makefile script.cpp
 CMD apache2ctl -D FOREGROUND
 VOLUME ["/var/lock/"]
