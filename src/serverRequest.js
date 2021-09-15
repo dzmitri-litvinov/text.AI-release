@@ -1,9 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const textAreaCheckNode = document.getElementById('value'); // textarea for send button
+  const textAreaInfoNode = document.getElementById("info") // textarea for open database
   const sendButton = document.getElementById("send"); // button send
   const openButton = document.getElementById("open") // button open
-  const infoDatabase = document.getElementById("info") // info database
+  const WORDS_NUMBER = 2;
   
   const regexp = /[^(\d+(.\d+)?)]/g;
+
+  textAreaCheckNode.addEventListener("keyup", (e) => {
+    let arrayWords = e.target.value.split(" ");
+    let counterWords = arrayWords.length;
+
+    if (arrayWords[WORDS_NUMBER] !== "") {
+      if (counterWords > WORDS_NUMBER) {
+        sendButton.disabled = false;
+        sendButton.title = "";
+      } else {
+        sendButton.disabled = true;
+        sendButton.title = "Enter at least 3 words!";
+      }
+    }
+
+    if (counterWords > WORDS_NUMBER && e.code === "Enter") {
+      sendButton.disabled = false;
+      sendButton.title = "";
+      sendButton.click();
+    }
+  });
 
   sendButton.addEventListener("click", function () {
     let payload =
@@ -25,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     request.send(payload);
   });
 
-  openButton.addEventListener("click", function () {
+  openButton.addEventListener("click",  function () {
     const request1 = new XMLHttpRequest();
     // проверить работает ли этот запрос на получение из базы данных текста
     request1.open("GET", "http://localhost:4040/cgi-bin/text.cgi");
@@ -33,7 +56,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     request1.onload = function () {
       console.log(request1.responseText);
-      infoDatabase.innerHTML = request1.responseText;
+      textAreaInfoNode.innerHTML = request1.responseText;
+      textAreaInfoNode.disabled = true;
+      textAreaInfoNode.style.color = 'black';
       openButton.disabled = true;
     };
   })
