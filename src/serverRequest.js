@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let payload =
         "name=" + encodeURIComponent(document.getElementById("value").value);
         const request = new XMLHttpRequest();
-    request.open("POST", "http://3.15.205.38:8080/cgi-bin/script.cgi", true);
+    request.open("POST", "http://3.136.85.19:8080/cgi-bin/script.cgi", true);
 
     request.addEventListener("readystatechange", function () {
       const answerNumber = 100 - parseInt(request.responseText.replace(regexp, ""));
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   openButton.addEventListener("click",  function () {
     const request1 = new XMLHttpRequest();
-    request1.open("GET", "http://3.15.205.38:8080/cgi-bin/text.cgi");
+    request1.open("GET", "http://3.136.85.19:8080/cgi-bin/text.cgi");
     request1.send();
 
     request1.onload = function () {
