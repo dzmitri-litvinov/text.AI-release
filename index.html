@@ -28,61 +28,32 @@
         <h2 class="c-antiPlagiarizm__subtitle">Intelligent App for text processing</h2>
     </div>
 
-    <div class="c-antiPlagiarizm__database">
-        <button id="open" class="c-antiPlagiarizm__btn" type="button">Open</button>
-        <div id="info" class="c-antiPlagiarizm__info"></div>
-    </div>
-
     <div class="c-antiPlagiarizm__main">
+        <div class="c-antiPlagiarizm__database">
+            <div class="c-antiPlagiarizm__block">
+                <button id="open" class="c-antiPlagiarizm__btn" type="button">Original</button>
+                <div id="img" class="c-antiPlagiarizm__picture">
+                    <div id="opacity" class="c-antiPlagiarizm__opacity"></div>
+                    <div id="result" class="result"></div>
+                </div>
+            </div>
+
+            <div class="c-antiPlagiarizm__info">
+                <label class="c-antiPlagiarizm__label" for="info"> Original text:</label>
+                <textarea id="info" class="c-antiPlagiarizm__textarea" name="info"
+                          placeholder="Original text..."></textarea>
+            </div>
+        </div>
 
         <form class="c-antiPlagiarizm__form">
-            <div class="c-antiPlagiarizm__textregion">
-                <label class="c-antiPlagiarizm__label" for="value"> Input text:</label>
-                <textarea id="value" class="c-antiPlagiarizm__textarea" name="value"
-                          placeholder="Input text..."></textarea>
-            </div>
-
-            <div class="c-antiPlagiarizm__configuration">
-
-                <div class="c-select">
-                    <div class="c-select__header">
-                        <img class="c-select__img" src="./src/uniqueness.png" alt="uniqueness" width="40"
-                             height="36">
-                        <span class="c-select__text">Uniqueness</span>
-                        <img class="c-select__img c-select__img--absoluteBottom" src="./src/arrow-bottom.jpg"
-                             alt="arrow-bottom" width="30" height="15">
-                    </div>
-                    <div class="c-select__body">
-                        <div class="c-select__option">
-                            <img class="c-select__img" src="./src/uniqueness.png" alt="uniqueness" width="40"
-                                 height="36"><span class="c-select__text">Uniqueness</span>
-                            <img class="c-select__img c-select__img--absoluteTop" src="./src/arrow-top.jpg"
-                                 alt="arrow-bottom" width="30" height="15">
-                        </div>
-                        <div class="c-select__option">
-                            <img class="c-select__img" src="./src/repetition.png" alt="repetition" width="36"
-                                 height="36"><span class="c-select__text">Repetition</span>
-                        </div>
-                        <div class="c-select__option">
-                            <img class="c-select__img" src="./src/misprint.png" alt="misprint" width="37"
-                                 height="32"><span class="c-select__text">Misprint</span>
-                        </div>
-                        <div class="c-select__option">
-                            <img class="c-select__img" src="./src/validation.png" alt="validation" width="34"
-                                 height="34"><span class="c-select__text">Validation</span>
-                        </div>
-                    </div>
-                </div>
-
                 <button disabled id="send" title="Enter at least 3 words!" class="c-antiPlagiarizm__button"
                         type="button">Check</button>
-            </div>
+                <div class="c-antiPlagiarizm__textregion">
+                    <label class="c-antiPlagiarizm__label" for="value"> Input text:</label>
+                    <textarea id="value" class="c-antiPlagiarizm__textarea" name="value"
+                              placeholder="Input text... textarea 2 rows"></textarea>
+                </div>
         </form>
-
-        <div id="img" class="c-antiPlagiarizm__picture">
-            <div id="opacity" class="c-antiPlagiarizm__opacity"></div>
-            <div id="result" class="result"></div>
-        </div>
     </div>
 
     <div class="c-antiPlagiarizm__footer">
@@ -92,7 +63,7 @@
         </div>
 
         <div class="c-antiPlagiarizm__authors">
-            <p class="c-antiPlagiarizm__text">Artem and Ivan, 2021</p>
+            <p class="c-antiPlagiarizm__text">Nickname, year</p>
         </div>
 
         <div class="c-antiPlagiarizm__media">
@@ -120,8 +91,6 @@
 
 <script src="src/particles.js"></script>
 <script src="src/app.js"></script>
-
-<script src="src/select.js"></script>
 <script src="src/serverRequest.js"></script>
 </body>
 
